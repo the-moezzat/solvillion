@@ -10,6 +10,8 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel"
 import Navbar from "@/components/navbar";
+import Autoplay from "embla-carousel-autoplay"
+
 
 const content = [{
         title: "تحسين جودة مياه الصرف بأفكار هندسية مبتكرة!",
@@ -61,7 +63,11 @@ function Hero() {
             <div className="max-w-[1280px] mx-auto">
                 <Carousel className="w-full" setApi={setApi} opts={{
                     direction: "rtl"
-                }}>
+                }} plugins={[
+                    Autoplay({
+                        delay: 2000,
+                    }),
+                ]}>
                     <CarouselContent>
                         {content.map(({title, description}, index) => (
                             <CarouselItem key={index}>
