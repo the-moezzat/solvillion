@@ -9,6 +9,7 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel"
+import Navbar from "@/components/navbar";
 
 const content = [{
         title: "تحسين جودة مياه الصرف بأفكار هندسية مبتكرة!",
@@ -55,44 +56,40 @@ function Hero() {
     }, [api])
 
     return (
-        <div className={'flex flex-col gap-24'} dir={'rtl'}>
-            <Carousel className="w-full" setApi={setApi} opts={{
-                direction: "rtl"
-            }}>
-                <CarouselContent>
-                    {content.map(({title, description}, index) => (
-                        <CarouselItem key={index}>
-                            <div className={'flex flex-col gap-6'}>
-                                <h1 className={'text-5xl text-[#3EC2F1] font-bold'}>
-                                    {title}
-                                </h1>
-                                <p className={'text-white text-xl'}>{description}</p>
-                            </div>
-                            <div className="p-1">
-                                {/*<Card>*/}
-                                {/*    <CardContent className="flex aspect-square items-center justify-center p-6">*/}
-                                {/*        <span className="text-4xl font-semibold">{index + 1}</span>*/}
-                                {/*    </CardContent>*/}
-                                {/*</Card>*/}
-                            </div>
-                        </CarouselItem>
-                    ))}
-                </CarouselContent>
-                {/*<CarouselPrevious />*/}
-                {/*<CarouselNext />*/}
-            </Carousel>
+        <header className={' flex flex-col items-center justify-center bg-gradient-image min-h-dvh pt-24 pb-12 px-12'} dir={'rtl'}>
+            {/*<Navbar/>*/}
+            <div className="max-w-[1280px] mx-auto">
+                <Carousel className="w-full" setApi={setApi} opts={{
+                    direction: "rtl"
+                }}>
+                    <CarouselContent>
+                        {content.map(({title, description}, index) => (
+                            <CarouselItem key={index}>
+                                <div className={'flex flex-col gap-8'}>
+                                    <h1 className={'text-6xl leading-normal text-[#3EC2F1] font-bold'}>
+                                        {title}
+                                    </h1>
+                                    <p className={'text-white text-xl'}>{description}</p>
+                                </div>
+                            </CarouselItem>
+                        ))}
+                    </CarouselContent>
+                    {/*<CarouselPrevious />*/}
+                    {/*<CarouselNext />*/}
+                </Carousel>
 
-            <div className={'grid grid-cols-3 gap-4 w-full items-center'}>
+            </div>
+            <div className={'grid grid-cols-3 mt-auto gap-4 w-full items-start max-w-[1480px] mx-auto'}>
                 {overview.map(({title, description}, index) => (
                     <div key={index}
-                        className={`transition-all flex flex-col gap-4`}>
+                         className={`transition-all flex flex-col gap-4`}>
                         <span className={`w-full h-2 ${index === current ? "bg-[#3DC2F1]" : "bg-gray-300"}  rounded-full`}></span>
-                        <h2 className={`text-2xl font-bold ${index === current ? "text-[#3DC2F1]" : "text-white"}`}>{title}</h2>
-                        <p className={`text-white text-base`}>{description}</p>
+                        <h2 className={`text-xl font-bold ${index === current ? "text-[#3DC2F1]" : "text-white"}`}>{title}</h2>
+                        <p className={`text-white text-sm`}>{description}</p>
                     </div>
-                        ))}
+                ))}
             </div>
-        </div>
+        </header>
     );
 }
 

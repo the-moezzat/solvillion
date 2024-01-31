@@ -74,3 +74,10 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+    .bg-gradient-image {
+      background: linear-gradient(to top,  rgba(23, 49, 88, 0.9),  rgba(23, 49, 88, 0.4)), url('/tank.jpg') no-repeat;
+      background-size: cover;
+  }
+}

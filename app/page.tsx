@@ -1,11 +1,14 @@
 import Hero from "@/components/hero";
+import Navbar from "@/components/navbar";
 
 export default function Home() {
   return (
-    <main className="">
-        <div className={"bg-[#173158] flex min-h-screen flex-col items-center justify-between p-24"}>
+    <main className="" dir={'rtl'}>
+        <Navbar/>
+        <div >
             <Hero/>
         </div>
+        <h2>akdjfalkjflkj</h2>
     </main>
   );
 }
